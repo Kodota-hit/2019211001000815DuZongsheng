@@ -12,8 +12,9 @@
   </head>
   <body>
   <h1>Hello world!</h1>
-  This is my first homework.
+  This is index page.
   <br/>
-  <a href="hello-servlet">Hello Servlet</a>
+  <a href="dzsServlet">My Servlet</a> <br/>
+  <a href="week2/register.jsp">Register</a>
   </body>
 </html>

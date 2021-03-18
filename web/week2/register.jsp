@@ -24,11 +24,7 @@
     </script>
 
     <script>
-        $.validator.setDefaults({
-            submitHandler: function() {
-                alert("Register!");
-            }
-        });
+
         $().ready(function() {
             $("#signupForm").validate({
                 rules: {
@@ -88,7 +84,7 @@
     </style>
 </head>
 <body>
-<form  id="signupForm" method="get" action="">
+<form  id="signupForm" method="post" action="../jdbc">
     <fieldset>
         <legend>Register</legend>
 
