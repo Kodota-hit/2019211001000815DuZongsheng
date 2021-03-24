@@ -84,7 +84,7 @@
     </style>
 </head>
 <body>
-<form  id="signupForm" method="post" action="../jdbc">
+<form  id="signupForm" method="post" action="../register">
     <fieldset>
         <legend>Register</legend>
 
