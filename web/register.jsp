@@ -19,7 +19,7 @@
             var DATE_FORMAT = /^(\d{4})-(0\d{1}|[12]\d{1}|3[01])-(0\d{1}|1[0-2])$/;
             if(DATE_FORMAT.test(value)) return true;
             else return false;
-            }," The date format should be yyyy-dd-mm");
+        }," The date format should be yyyy-dd-mm");
 
     </script>
 
@@ -84,7 +84,10 @@
     </style>
 </head>
 <body>
-<form  id="signupForm" method="post" action="../register">
+
+<%@include file="header.jsp"%>
+
+<form  id="signupForm" method="post" action="register">
     <fieldset>
         <legend>Register</legend>
 
@@ -121,6 +124,8 @@
         </p>
     </fieldset>
 </form>
+
+<%@include file="footer.jsp"%>
 </body>
 </html>
 

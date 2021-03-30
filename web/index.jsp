@@ -11,10 +11,16 @@
     <title>$Hello world$</title>
   </head>
   <body>
-  <h1>Hello world!</h1>
-  This is index page.
+  <%@include file="header.jsp"%>
+
+  <h1>Welcome to my home page!</h1>
   <br/>
-  <a href="dzsServlet">My Servlet</a> <br/>
-  <a href="week2/register.jsp">Register</a>
+  <a href="dzsServlet">My First Servlet -wekek2</a> <br/>
+  <a href="register.jsp">Register Page -week3</a> <br/>
+  <a href="config">Config parameter -week4</a> <br/>
+  <a href="index.jsp">include -week5</a>
+  <a href="login.jsp">Login page -week5</a>
+
+  <%@include file="footer.jsp"%>
   </body>
 </html>
