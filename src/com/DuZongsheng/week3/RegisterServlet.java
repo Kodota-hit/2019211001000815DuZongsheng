@@ -16,7 +16,7 @@ public class RegisterServlet extends HttpServlet {
     Connection con =null;
     @Override
     public void init() throws ServletException {
-        ServletContext context = getServletConfig().getServletContext();
+/*        ServletContext context = getServletConfig().getServletContext();
         String driver = context.getInitParameter("driver");
         String url = context.getInitParameter("url");
         String username = context.getInitParameter("username");
@@ -28,7 +28,8 @@ public class RegisterServlet extends HttpServlet {
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        }
+        }*/
+        con = (Connection) getServletContext().getAttribute("con");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -62,7 +63,7 @@ public class RegisterServlet extends HttpServlet {
             if(rs==1) System.out.println("OK");
             else System.out.println("ERROR");
 
-            sql="SELECT * FROM userdb.usertable";
+            /*sql="SELECT * FROM userdb.usertable";
             pstmt=con.prepareStatement(sql);
             ResultSet results=pstmt.executeQuery();
             int col=results.getMetaData().getColumnCount();
@@ -99,7 +100,9 @@ public class RegisterServlet extends HttpServlet {
             writer.close();
             results.close();
             pstmt.close();
-            if(con!=null) con.close();
+            if(con!=null) con.close();*/
+
+            response.sendRedirect("login.jsp");
 
         } catch (SQLException e) {
             e.printStackTrace();

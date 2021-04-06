@@ -15,6 +15,10 @@
 <%@include file="header.jsp"%>
 
 <h1>Login</h1>
+<%
+    if(!(request.getAttribute("message")==null))
+        out.println("<font size=\"4\" color=\"red\">"+request.getAttribute("message")+"</font>");
+%>
 
 <form  id="LoginForm" method="post" action="login">
     <label for="username">UserName</label>
