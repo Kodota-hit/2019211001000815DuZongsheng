@@ -1,5 +1,8 @@
 package com.DuZongsheng.week5;
 
+import com.DuZongsheng.dao.UserDao;
+import com.DuZongsheng.model.User;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,7 +40,24 @@ public class LoginServlet extends HttpServlet {
         String password=request.getParameter("password");
         PrintWriter out=response.getWriter();
 
+
+        UserDao userDao=new UserDao();
         try {
+            User user= userDao.findByUsernamePassword(con,username,password);
+            if(user!=null) {
+                request.setAttribute("user",user);
+                request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+            }
+            else {
+                request.setAttribute("message","Username or Password Error!!!");
+                request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        /*try {
             String sql="select * from usertable where username=? and password=?";
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setString(1,username);
@@ -61,11 +81,11 @@ public class LoginServlet extends HttpServlet {
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        }*/
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
     }
 }
