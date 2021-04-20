@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp"%>
 <%
-    User user= (User) request.getAttribute("user");
+    User u= (User) session.getAttribute("user");
 %>
 
 <h1>User Info</h1>
@@ -23,12 +23,15 @@
         <th>Birthday</th>
     </tr>
     <tr>
-        <td><%=user.getUsername()%></td>
-        <td><%=user.getPassword()%></td>
-        <td><%=user.getEmail()%></td>
-        <td><%=user.getGender()%></td>
-        <td><%=user.getBirthday()%></td>
+        <td><%=u.getUsername()%></td>
+        <td><%=u.getPassword()%></td>
+        <td><%=u.getEmail()%></td>
+        <td><%=u.getGender()%></td>
+        <td><%=u.getBirthday()%></td>
     </tr>
 
 </table>
+
+<a href="updateUser">Update User</a>
+
 <%@include file="footer.jsp"%>

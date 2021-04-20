@@ -19,13 +19,28 @@
     if(!(request.getAttribute("message")==null))
         out.println("<font size=\"4\" color=\"red\">"+request.getAttribute("message")+"</font>");
 %>
-
+<%
+    Cookie[] allCookies=request.getCookies();
+    String username="",password="",rememberMeVal="";
+    if(allCookies!=null) {
+        for(Cookie c:allCookies) {
+            if(c.getName().equals("cUsername"))
+                username=c.getValue();
+            if(c.getName().equals("cPassword"))
+                password=c.getValue();
+            if(c.getName().equals("cRememberMe"))
+                rememberMeVal=c.getValue();
+        }
+    }
+%>
 <form  id="LoginForm" method="post" action="login">
     <label for="username">UserName</label>
-    <input id="username" name="username" type="text"> <br/>
+    <input id="username" name="username" type="text" value="<%=username%>"> <br/>
 
     <label for="username">Password</label>
-    <input id="password" name="password" type="password"> <br/>
+    <input id="password" name="password" type="password" value="<%=password%>"> <br/>
+
+    <input type="checkbox" name="rememberMe" value="1" <%=rememberMeVal.equals("")?"checked":""%>>Remember Me<br/>
 
     <input class="submit" type="submit" value="Login">
 </form>
