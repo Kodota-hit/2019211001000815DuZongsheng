@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 
 @WebServlet(name = "RegisterServlet",urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -102,7 +103,7 @@ public class RegisterServlet extends HttpServlet {
             pstmt.close();
             if(con!=null) con.close();*/
 
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -112,6 +113,6 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        request.getRequestDispatcher("WEB-INF/views/register.jsp").forward(request,response);
     }
 }

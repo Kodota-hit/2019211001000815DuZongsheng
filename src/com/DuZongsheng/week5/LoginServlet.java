@@ -49,9 +49,9 @@ public class LoginServlet extends HttpServlet {
                     Cookie passwordCookies=new Cookie("cPassword",user.getPassword());
                     Cookie rememberMeCookies=new Cookie("cRememberMe",rememberMe);
 
-                    usernameCookies.setMaxAge(5);
-                    passwordCookies.setMaxAge(5);
-                    rememberMeCookies.setMaxAge(5);
+                    usernameCookies.setMaxAge(50);
+                    passwordCookies.setMaxAge(50);
+                    rememberMeCookies.setMaxAge(50);
 
                     response.addCookie(usernameCookies);
                     response.addCookie(passwordCookies);
@@ -60,11 +60,13 @@ public class LoginServlet extends HttpServlet {
 
                 HttpSession session=request.getSession();
                 System.out.println("session id-->"+session.getId());
-                session.setMaxInactiveInterval(30);
+                session.setMaxInactiveInterval(50);
                 session.setAttribute("user",user);
 
                 //request.setAttribute("user",user);
+                //if(!user.getUsername().equals("admin"))
                 request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+                //else response.sendRedirect("admin/home");
             }
             else {
                 request.setAttribute("message","Username or Password Error!!!");
