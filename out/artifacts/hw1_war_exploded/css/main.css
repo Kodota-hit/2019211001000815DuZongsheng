@@ -1538,7 +1538,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb>li+li:before {
-    content: " ";
+    content: "ï¿½";
 }
 
 #cart_items .cart_info {

@@ -12,6 +12,8 @@ import java.io.PrintWriter;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 
+import static java.sql.Types.NULL;
+
 @WebServlet(name = "RegisterServlet",urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     Connection con =null;
@@ -53,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
             String sql="INSERT INTO usertable VALUES (?,?,?,?,?,?);";
 
             PreparedStatement pstmt =con.prepareStatement(sql);
-            pstmt.setInt(1,20190818);  //id should be generated automaticly, but I don't know how
+            pstmt.setInt(1,NULL);  //id should be generated automaticly, but I don't know how
             pstmt.setString(2,username);
             pstmt.setString(3,password);
             pstmt.setString(4,email);
