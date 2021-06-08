@@ -77,4 +77,13 @@
         <param-value>acid0000</param-value>
     </context-param>
 
+    <filter>
+        <filter-name>DuZongshengFilter</filter-name>
+        <filter-class>com.lab2.DuZongshengFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>DuZongshengFilter</filter-name>
+        <url-pattern>/lab2/welcome.jsp</url-pattern>
+    </filter-mapping>
+
 </web-app>
