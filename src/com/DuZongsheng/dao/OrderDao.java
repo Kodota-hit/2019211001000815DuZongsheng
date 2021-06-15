@@ -202,7 +202,7 @@ public class OrderDao implements IOrderDao {
 
 		List<Order> orderList=new ArrayList<Order>();
 		try {
-			String queryString = "select * from [dbo].[Order]";// userdb.Order for mysql
+			String queryString = "select * from userdb.Order";// userdb.Order for mysql
 			PreparedStatement st = con.prepareStatement(queryString);
 			//st.setObject(1, value);
 			ResultSet	rs = st.executeQuery();
